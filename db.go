@@ -46,6 +46,11 @@ func (db *MongoDB) Ping(ctx context.Context) (bool, error) {
 	return true, nil
 }
 
+// GetClient func
+func (db *MongoDB) GetClient() *mongo.Client {
+	return db.client
+}
+
 // GetCollection func
 func (db *MongoDB) GetCollection(collection string) *mongo.Collection {
 	return db.client.Database(db.database).Collection(collection)
